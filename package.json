@@ -27,7 +27,7 @@
     "@chirag127/astro-chrome": "^0.1.5",
     "@chirag127/astro-data": "^0.1.1",
     "@chirag127/astro-shell": "^0.1.3",
-    "@chirag127/oriz-ui": "git+https://github.com/chirag127/oriz-ui.git#main",
+    "@chirag127/oriz-ui": "^0.1.0",
     "@imgly/background-removal": "^1.7.0",
     "@tailwindcss/vite": "^4.3.1",
     "astro": "^6.4.7",
