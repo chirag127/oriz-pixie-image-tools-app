@@ -1,0 +1,25 @@
+---
+import ToolLayout from "../../layouts/ToolLayout.astro";
+import ImageBase64 from "../../components/tools/ImageBase64";
+import { getToolById } from "../../lib/toolMeta";
+
+const tool = getToolById("image-base64")!;
+
+const faqItems = [
+  { question: "What is base64 encoding?", answer: "Base64 converts binary image data into a text string that can be embedded directly in HTML, CSS, or JSON without a separate file." },
+  { question: "When should I use base64 images?", answer: "For small icons or inline images in HTML/CSS. Avoid for large images as base64 is ~33% larger than the original binary." },
+  { question: "Can I paste a raw base64 string without the data URI prefix?", answer: "Yes. The tool auto-detects common image types (JPEG, PNG, GIF, WebP) from the data and adds the correct prefix." },
+  { question: "Are my images uploaded?", answer: "No. Everything runs locally in your browser. Your files never leave your device." },
+];
+---
+
+<ToolLayout
+  toolId={tool.id}
+  toolName={tool.name}
+  toolDescription={tool.longDescription}
+  toolIcon="Code"
+  toolCategory={tool.category}
+  faqItems={faqItems}
+>
+  <ImageBase64 client:load />
+</ToolLayout>

@@ -1,0 +1,25 @@
+---
+import ToolLayout from "../../layouts/ToolLayout.astro";
+import ExifViewer from "../../components/tools/ExifViewer";
+import { getToolById } from "../../lib/toolMeta";
+
+const tool = getToolById("exif-viewer")!;
+
+const faqItems = [
+  { question: "What is EXIF data?", answer: "EXIF (Exchangeable Image File Format) stores metadata about a photo: camera make/model, shutter speed, aperture, ISO, GPS location, date taken, and more." },
+  { question: "Which formats support EXIF?", answer: "JPEG and HEIC files typically carry full EXIF data. PNG and WebP may carry limited metadata. TIFF supports full EXIF." },
+  { question: "Does this upload my image?", answer: "No. The exifr library reads metadata entirely in your browser. Your image is never sent to a server." },
+  { question: "Why does my image show no EXIF data?", answer: "Screenshots, images saved from the web, and files processed by some editors may have EXIF stripped. Camera photos usually have rich metadata." },
+];
+---
+
+<ToolLayout
+  toolId={tool.id}
+  toolName={tool.name}
+  toolDescription={tool.longDescription}
+  toolIcon="ScanLine"
+  toolCategory={tool.category}
+  faqItems={faqItems}
+>
+  <ExifViewer client:load />
+</ToolLayout>

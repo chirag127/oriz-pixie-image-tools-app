@@ -1,0 +1,25 @@
+---
+import ToolLayout from "../../layouts/ToolLayout.astro";
+import ColorPicker from "../../components/tools/ColorPicker";
+import { getToolById } from "../../lib/toolMeta";
+
+const tool = getToolById("color-picker")!;
+
+const faqItems = [
+  { question: "How do I pick a color?", answer: "Upload any image, then click any pixel on the canvas to instantly see its hex and RGB values." },
+  { question: "Can I copy the hex code?", answer: "Yes — click the hex value shown after picking a color to copy it to your clipboard." },
+  { question: "Are my images uploaded?", answer: "No. All processing happens entirely in your browser using the Canvas API. Nothing leaves your device." },
+  { question: "How many colors can I pick?", answer: "Click as many pixels as you like. The last 20 picked colors appear as swatches below the result." },
+];
+---
+
+<ToolLayout
+  toolId={tool.id}
+  toolName={tool.name}
+  toolDescription={tool.longDescription}
+  toolIcon="Pipette"
+  toolCategory={tool.category}
+  faqItems={faqItems}
+>
+  <ColorPicker client:load />
+</ToolLayout>

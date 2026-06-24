@@ -14,6 +14,7 @@ import '~/styles/global.css'
 import '~/styles/oriz-ui-overrides.css'
 import '@chirag127/astro-shell/tokens.css'
 import FamilyChrome from '@chirag127/astro-shell/components/FamilyChrome.astro'
+import FamilySidebar from '@chirag127/astro-shell/components/FamilySidebar.astro'
 import Header from '~/components/Header.astro'
 import AppSidebarContent from '~/components/AppSidebarContent.astro'
 import Sidebar from '@chirag127/astro-chrome/Sidebar.astro'
@@ -121,11 +122,26 @@ const ga4Id = import.meta.env.PUBLIC_GA4_ID
     <a href="#main" class="skip-link">Skip to content</a>
     <FamilyChrome slug="oriz-pixie-image-tools-app" title="Image" accent="#7c3aed" />
     <Header isToolPage={isToolPage} />
-    <div class="layout-body">
-      <Sidebar>
-        <AppSidebarContent />
-      </Sidebar>
-      <main id="main" class="layout-main"><slot /></main>
+    <div class="oriz-shell">
+      <FamilySidebar slug="oriz-pixie-image-tools-app" title="Image Tools">
+        <a slot="tools" href="/tools/blur-face/">Blur Face</a>
+        <a slot="tools" href="/tools/color-picker/">Color Picker</a>
+        <a slot="tools" href="/tools/compress-image/">Compress Image</a>
+        <a slot="tools" href="/tools/convert-from-jpg/">Convert From JPG</a>
+        <a slot="tools" href="/tools/convert-to-jpg/">Convert To JPG</a>
+        <a slot="tools" href="/tools/crop-image/">Crop Image</a>
+        <a slot="tools" href="/tools/exif-viewer/">EXIF Viewer</a>
+        <a slot="tools" href="/tools/html-to-image/">HTML to Image</a>
+        <a slot="tools" href="/tools/image-base64/">Image ↔ Base64</a>
+        <a slot="tools" href="/tools/meme-generator/">Meme Generator</a>
+        <a slot="tools" href="/tools/photo-editor/">Photo Editor</a>
+        <a slot="tools" href="/tools/remove-background/">Remove Background</a>
+        <a slot="tools" href="/tools/resize-image/">Resize Image</a>
+        <a slot="tools" href="/tools/rotate-image/">Rotate Image</a>
+        <a slot="tools" href="/tools/upscale-image/">Upscale Image</a>
+        <a slot="tools" href="/tools/watermark-image/">Watermark Image</a>
+      </FamilySidebar>
+      <main id="main" class="oriz-main layout-main"><slot /></main>
     </div>
     {!bareFooter && <Footer />}
     <BottomBar actions={bottomBarActions} />
